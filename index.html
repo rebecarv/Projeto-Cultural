@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banda Beta | Site Oficial</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <style>
+        /* --- ESTILO GERAL (CSS) --- */
+        :root {
+            --cor-fundo: #0a0a0a;
+            --cor-texto: #f0f0f0;
+            --cor-destaque: #e63946; /* Um vermelho vibrante */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--cor-destaque); }
+
+        /* Seções */
+        section {
+            padding: 60px 20px;
+            min-height: 80vh; /* Ocupa quase a tela toda */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--cor-destaque);
+            display: inline-block;
+        }
+
+        /* Hero (Topo do site) */
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1493225255756-d9584f8606e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        #home h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: 5px; }
+        #home p { font-size: 1.2rem; margin-top: 10px; }
+
+        /* Mapa */
+        #mapa-container {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        /* Contato */
+        .btn-contato {
+            background-color: var(--cor-destaque);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Responsividade (Mobile) */
+        @media (max-width: 768px) {
+            #home h1 { font-size: 2.5rem; }
+            nav a { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#musica">Música</a>
+        <a href="#agenda">Agenda/Mapa</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="home">
+        <h1>Banda Beta</h1>
+        <p>Rock Alternativo | São Paulo - SP</p>
+    </section>
+
+    <section id="musica">
+        <h2>Ouça Agora</h2>
+        <p>Nosso último lançamento "Noite Clara"</p>
+        <br>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+
+    <section id="agenda">
+        <h2>Próximo Show</h2>
+        <p>Venha nos ver ao vivo neste sábado!</p>
+        <br>
+        <div id="mapa-container"></div>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Local: Teatro Municipal (Exemplo)</p>
+    </section>
+
+    <section id="sobre" style="background-color: #111;">
+        <h2>Quem Somos</h2>
+        <p style="max-width: 600px;">
+            A Banda Beta nasceu nos corredores da faculdade com o objetivo de misturar tecnologia e arte. 
+            Nossa missão é levar cultura acessível para todos os cantos da cidade.
+            (Aqui você coloca o texto real da banda depois).
+        </p>
+    </section>
+
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <p>Quer a gente no seu evento?</p>
+        <a href="mailto:contato@bandabeta.com" class="btn-contato">Enviar E-mail</a>
+        <br><br>
+        <p>Siga no Instagram: @bandabeta</p>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // --- CONFIGURAÇÃO DO MAPA ---
+        // 1. Inicializa o mapa nas coordenadas (Latitude, Longitude) e Zoom
+        // Exemplo: Coordenadas de um teatro em SP. Você pode pegar no Google Maps clicando com botão direito > "O que há aqui?"
+        var map = L.map('mapa-container').setView([-23.5453, -46.6388], 15);
+
+        // 2. Adiciona o desenho do mapa (OpenStreetMap - Gratuito)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // 3. Adiciona o pino (Marker)
+        L.marker([-23.5453, -46.6388]).addTo(map)
+            .bindPopup('<b>Show da Banda Beta</b><br>Sábado às 20h.')
+            .openPopup();
+    </script>
+</body>
+</html>
