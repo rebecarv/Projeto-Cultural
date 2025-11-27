@@ -8,101 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-
-    <style>
-        /* --- ESTILO GERAL (CSS) --- */
-        :root {
-            --cor-fundo: #0a0a0a;
-            --cor-texto: #f0f0f0;
-            --cor-destaque: #e63946; /* Um vermelho vibrante */
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            line-height: 1.6;
-        }
-
-        /* Menu */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.9);
-            padding: 15px 0;
-            z-index: 1000;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        nav a:hover { color: var(--cor-destaque); }
-
-        /* Seções */
-        section {
-            padding: 60px 20px;
-            min-height: 80vh; /* Ocupa quase a tela toda */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--cor-destaque);
-            display: inline-block;
-        }
-
-        /* Hero (Topo do site) */
-        #home {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1493225255756-d9584f8606e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-        #home h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: 5px; }
-        #home p { font-size: 1.2rem; margin-top: 10px; }
-
-        /* Mapa */
-        #mapa-container {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            border: 2px solid #333;
-            border-radius: 10px;
-        }
-
-        /* Contato */
-        .btn-contato {
-            background-color: var(--cor-destaque);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        /* Responsividade (Mobile) */
-        @media (max-width: 768px) {
-            #home h1 { font-size: 2.5rem; }
-            nav a { display: block; margin: 10px 0; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -151,5 +57,7 @@
         <p>Siga no Instagram: @bandabeta</p>
     </section>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
 </body>
 </html>
