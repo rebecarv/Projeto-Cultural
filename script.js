@@ -18,8 +18,8 @@
 
         // Marcador personalizado (Um círculo ciano em vez do pino azul padrão)
         var circle = L.circleMarker([latitude, longitude], {
-            color: '#00f7ff', // Cor da borda (Ciano)
-            fillColor: '#00f7ff', // Cor do preenchimento
+            color: '#ffaa8f', // Cor da borda (Ciano)
+            fillColor: '#ffaa8f', // Cor do preenchimento
             fillOpacity: 0.8,
             radius: 10
         }).addTo(map);
