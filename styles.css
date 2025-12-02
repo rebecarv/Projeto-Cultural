@@ -1,92 +1,142 @@
 /* --- ESTILO GERAL (CSS) --- */
-        :root {
-            --cor-fundo: #0a0a0a;
-            --cor-texto: #f0f0f0;
-            --cor-destaque: #e63946; /* Um vermelho vibrante */
-        }
+:root {
+    --cor-fundo: #050505; /* Preto quase total */
+    --cor-fundo-secundario: #111111;
+    --cor-texto: #e0e0e0; /* Branco levemente cinza */
+    --cor-destaque: #00f7ff; /* Ciano Elétrico/Neon */
+    --cor-destaque-secundario: #ff00ea; /* Magenta Neon (para detalhes) */
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            line-height: 1.6;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Menu */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.9);
-            padding: 15px 0;
-            z-index: 1000;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        nav a:hover { color: var(--cor-destaque); }
+html { scroll-behavior: smooth; }
 
-        /* Seções */
-        section {
-            padding: 60px 20px;
-            min-height: 80vh; /* Ocupa quase a tela toda */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.7;
+}
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--cor-destaque);
-            display: inline-block;
-        }
+/* Títulos com fonte diferenciada */
+h1, h2, h3, nav a {
+    font-family: 'Chakra Petch', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-        /* Hero (Topo do site) */
-        #home {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1493225255756-d9584f8606e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-        #home h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: 5px; }
-        #home p { font-size: 1.2rem; margin-top: 10px; }
+/* Menu */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.95); /* Fundo mais escuro */
+    padding: 20px 0;
+    z-index: 1000;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+nav a:hover { 
+    color: var(--cor-destaque);
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.7); /* Efeito de brilho neon */
+}
 
-        /* Mapa */
-        #mapa-container {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            border: 2px solid #333;
-            border-radius: 10px;
-        }
+/* Seções */
+section {
+    padding: 80px 20px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        /* Contato */
-        .btn-contato {
-            background-color: var(--cor-destaque);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
-        }
+h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--cor-texto);
+    position: relative;
+}
+/* Detalhe neon abaixo dos títulos */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cor-destaque), var(--cor-destaque-secundario));
+    margin: 20px auto 0;
+}
 
-        /* Responsividade (Mobile) */
-        @media (max-width: 768px) {
-            #home h1 { font-size: 2.5rem; }
-            nav a { display: block; margin: 10px 0; }
-        }
+/* Hero (Topo do site) - Imagem mais urbana/noite */
+#home {
+    /* Usando uma imagem de "stage lighting" com cores que lembram a banda */
+    background: linear-gradient(rgba(5,5,5,0.5), var(--cor-fundo)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    align-items: flex-start; /* Alinha texto à esquerda */
+    text-align: left;
+    padding-left: 10%;
+}
+#home h1 { 
+    font-size: 5rem; 
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    /* Efeito de "glitch" sutil no texto */
+    text-shadow: 2px 2px var(--cor-destaque-secundario), -2px -2px var(--cor-destaque);
+}
+#home p { 
+    font-size: 1.5rem; 
+    font-weight: 600;
+    color: var(--cor-destaque);
+    letter-spacing: 3px;
+}
+
+/* Seções com fundo alternado */
+#musica, #contato { background-color: var(--cor-fundo-secundario); }
+
+/* Mapa com borda neon */
+#mapa-container {
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    border: 2px solid #222;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.2); /* Glow sutil no mapa */
+}
+
+/* Contato */
+.btn-contato {
+    background: transparent;
+    color: var(--cor-destaque);
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid var(--cor-destaque);
+    font-family: 'Chakra Petch', sans-serif;
+    text-transform: uppercase;
+    margin-top: 30px;
+    display: inline-block;
+    transition: 0.3s;
+}
+.btn-contato:hover {
+    background: var(--cor-destaque);
+    color: var(--cor-fundo);
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #home h1 { font-size: 3rem; letter-spacing: 4px; }
+    #home { padding-left: 20px; align-items: center; text-align: center; }
+    nav a { display: block; margin: 15px 0; font-size: 1.1rem; }
+    nav { padding: 10px 0; background: rgba(5, 5, 5, 1); }
+}
