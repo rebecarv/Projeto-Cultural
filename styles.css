@@ -191,14 +191,7 @@ h2::after {
     }
 
     /* 2. Ajuste da Seção HOME (Capa) */
-    #home {
-        /* A capa deve ser grande, mas não 100% da tela */
-        height: auto;
-        min-height: 70vh; /* Ocupa 70% da altura da tela, o suficiente para ser impactante */
-        
-        /* Opcional: Reduz o tamanho da fonte para caber melhor */
-        /* h1 { font-size: 3rem !important; } */
-    }
+    
     #home h1 { font-size: 3rem; letter-spacing: 4px; }
     #home { padding-left: 20px; align-items: center; text-align: center; }
 
