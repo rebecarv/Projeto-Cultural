@@ -76,9 +76,8 @@ h2::after {
     margin: 20px auto 0;
 }
 
-/* Hero (Topo do site) - Imagem mais urbana/noite */
+/* Hero (Topo do site) */
 #home {
-    /* Usando uma imagem de "stage lighting" com cores que lembram a banda */
     background: linear-gradient(rgba(5,5,5,0.5), var(--cor-fundo)), url('capa-home.png');
     background-size: cover;
     background-position: center;
@@ -111,6 +110,22 @@ h2::after {
     height: 450px;
     border: 2px solid #222;
     box-shadow: 0 0 20px rgba(224, 207, 174, 0.2); /* Glow sutil no mapa */
+}
+
+/* Seção #sobre */
+#sobre {
+    padding: 80px 20px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    background-color: var(--cor-fundo-secundario); /* Cor de fallback (segurança) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('texture.png'); 
+    background-repeat: repeat;
+    background-size: auto; /* Garante que a imagem se repita sem esticar */
 }
 
 /* Contato */
