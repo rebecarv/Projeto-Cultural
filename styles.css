@@ -3,8 +3,8 @@
     --cor-fundo: #050505; /* Preto quase total */
     --cor-fundo-secundario: #111111;
     --cor-texto: #e0e0e0; /* Branco levemente cinza */
-    --cor-destaque: #00f7ff; /* Ciano Elétrico/Neon */
-    --cor-destaque-secundario: #ff00ea; /* Magenta Neon (para detalhes) */
+    --cor-destaque: #ffaa8f; /* Elétrico/Neon */
+    --cor-destaque-secundario: #871845; /*  (para detalhes) */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +46,7 @@ nav a {
 }
 nav a:hover { 
     color: var(--cor-destaque);
-    text-shadow: 0 0 10px rgba(0, 247, 255, 0.7); /* Efeito de brilho neon */
+    text-shadow: 0 0 10px rgba(224, 207, 174, 0.2); /* Efeito de brilho neon */
 }
 
 /* Seções */
@@ -79,7 +79,7 @@ h2::after {
 /* Hero (Topo do site) - Imagem mais urbana/noite */
 #home {
     /* Usando uma imagem de "stage lighting" com cores que lembram a banda */
-    background: linear-gradient(rgba(5,5,5,0.5), var(--cor-fundo)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3');
+    background: linear-gradient(rgba(5,5,5,0.5), var(--cor-fundo)), url('capa-home.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -110,7 +110,7 @@ h2::after {
     max-width: 900px;
     height: 450px;
     border: 2px solid #222;
-    box-shadow: 0 0 20px rgba(0, 247, 255, 0.2); /* Glow sutil no mapa */
+    box-shadow: 0 0 20px rgba(224, 207, 174, 0.2); /* Glow sutil no mapa */
 }
 
 /* Contato */
@@ -130,7 +130,7 @@ h2::after {
 .btn-contato:hover {
     background: var(--cor-destaque);
     color: var(--cor-fundo);
-    box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
+    box-shadow: 0 0 30px rgba(224, 207, 174, 0.2); /* Glow no hover */
 }
 
 /* Responsividade */
