@@ -49,6 +49,37 @@ nav a:hover {
     text-shadow: 0 0 10px rgba(224, 207, 174, 0.2); /* Efeito de brilho neon */
 }
 
+/* --- ESTILO GERAL (NAVEGAÇÃO) --- */
+nav {
+    position: static; 
+    display: flex; /* Permite alinhar o logo (opcional) e os links */
+    justify-content: center; /* Centraliza os links no desktop */
+    align-items: center;
+    padding: 20px 20px;
+    background: rgba(5, 5, 5, 0.95); 
+    border-bottom: 1px solid #222;
+}
+
+/* Ocultar o botão Hamburger por padrão (Desktop) */
+.menu-toggle {
+    display: none; 
+}
+
+/* Esconder o logo/nome da banda que só usamos no mobile (Opcional) */
+.logo-mobile {
+    display: none; 
+}
+
+/* Estilo dos Links no Desktop (Continuam em linha) */
+.menu-links a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 15px; 
+    /* ... demais estilos de fonte ... */
+    /* Garante que o link não quebre a linha, mesmo que ocupe 100% no mobile */
+    display: inline-block; 
+}
+
 /* Seções */
 section {
     padding: 80px 20px;
@@ -154,4 +185,55 @@ h2::after {
     #home { padding-left: 20px; align-items: center; text-align: center; }
     nav a { display: block; margin: 15px 0; font-size: 1.1rem; }
     nav { padding: 10px 0; background: rgba(5, 5, 5, 1); }
+}
+
+@media (max-width: 768px) {
+    
+    /* Regras da NAV para Mobile */
+    nav {
+        /* Garante que o logo e o botão fiquem nas pontas no mobile */
+        justify-content: space-between; 
+    }
+
+    /* 1. Mostrar o Logo Mobile e Ocultar a nav principal no topo (opcional) */
+    .logo-mobile {
+        display: block; 
+    }
+    
+    /* 2. Mostrar o botão Hamburger */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--cor-destaque);
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1001; 
+    }
+
+    /* 3. Esconder o grupo de links por padrão */
+    .menu-links {
+        display: none;
+        position: absolute;
+        top: 65px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo); 
+        padding-top: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    }
+    
+    /* 4. Mostrar os links em coluna quando o menu está ativo */
+    .menu-links.active {
+        display: flex; 
+        flex-direction: column; 
+    }
+    
+    /* 5. Estilo de cada link no Mobile */
+    .menu-links a {
+        padding: 15px 0;
+        border-bottom: 1px solid #1a1a1a; 
+        display: block; /* Aqui ele volta a ocupar 100% da largura */
+    }
+
 }
