@@ -181,14 +181,32 @@ h2::after {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    /* 1. Ajuste Geral das Seções */
+    section {
+        /* Reduz o padding vertical, mantendo o horizontal */
+        padding: 60px 20px; 
+        
+        /* Remove a altura mínima fixa. A seção terá APENAS a altura do conteúdo. */
+        min-height: auto; 
+    }
+
+    /* 2. Ajuste da Seção HOME (Capa) */
+    #home {
+        /* A capa deve ser grande, mas não 100% da tela */
+        height: auto;
+        min-height: 70vh; /* Ocupa 70% da altura da tela, o suficiente para ser impactante */
+        
+        /* Opcional: Reduz o tamanho da fonte para caber melhor */
+        /* h1 { font-size: 3rem !important; } */
+    }
     #home h1 { font-size: 3rem; letter-spacing: 4px; }
     #home { padding-left: 20px; align-items: center; text-align: center; }
-    nav a { display: block; margin: 15px 0; font-size: 1.1rem; }
-    nav { padding: 10px 0; background: rgba(5, 5, 5, 1); }
-}
 
-@media (max-width: 768px) {
-    
+    h2 { font-size: 2.5rem; }
+    nav a { margin: 0 10px; font-size: 0.8rem; }
+
+   #sobre-texto { font-size: 1rem; }
+
     /* Regras da NAV para Mobile */
     nav {
         /* Garante que o logo e o botão fiquem nas pontas no mobile */
